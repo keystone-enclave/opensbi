@@ -113,6 +113,7 @@ int sbi_ecall_handler(struct sbi_trap_regs *regs)
 	ext = sbi_ecall_find_extension(extension_id);
 	if (ext && ext->handle) {
 		ret = ext->handle(extension_id, func_id,
+          regs,
 				  args, &out_val, &trap);
 		if (extension_id >= SBI_EXT_0_1_SET_TIMER &&
 		    extension_id <= SBI_EXT_0_1_SHUTDOWN)
