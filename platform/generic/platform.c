@@ -20,6 +20,7 @@
 #include <sbi_utils/timer/fdt_timer.h>
 #include <sbi_utils/ipi/fdt_ipi.h>
 #include <sbi_utils/reset/fdt_reset.h>
+#include <sbi_utils/experimental/keystone/sm.h>
 
 extern const struct platform_override sifive_fu540;
 
@@ -154,6 +155,8 @@ static int generic_final_init(bool cold_boot)
 		if (rc)
 			return rc;
 	}
+
+	sm_init();
 
 	return 0;
 }
