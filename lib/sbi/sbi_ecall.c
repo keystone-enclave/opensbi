@@ -142,7 +142,8 @@ int sbi_ecall_handler(struct sbi_trap_regs *regs)
 		 * case should be handled differently.
 		 */
 		regs->mepc += 4;
-		regs->a0 = ret;
+		if(!regs->zero)
+      regs->a0 = ret;
 		if (!is_0_1_spec)
 			regs->a1 = out_val;
 	}
