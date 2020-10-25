@@ -76,9 +76,13 @@
 
 	/* End of the read-write data sections */
 
-	/* # Sanctum params */
+  . = ALIGN(0x1000); /* Need this to create proper sections */
+
+	PROVIDE(_fw_end = .);
+
+  /* # Sanctum params */
 	/* ================ */
-	. = 0x8001ff00; /* the last page before the payload */
+	. = 0x801ff000; /* the last page before the payload */
 
 	/* ## manufacturer_keys : */
 
@@ -113,6 +117,4 @@
 	. += 0x40;
 
 
-	. = ALIGN(0x1000); /* Need this to create proper sections */
 
-	PROVIDE(_fw_end = .);
