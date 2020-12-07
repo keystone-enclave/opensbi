@@ -142,6 +142,8 @@ static int generic_final_init(bool cold_boot)
 			return rc;
 	}
 
+  sm_init();
+
 	if (!cold_boot)
 		return 0;
 
@@ -156,7 +158,6 @@ static int generic_final_init(bool cold_boot)
 			return rc;
 	}
 
-	sm_init();
 
 	return 0;
 }
