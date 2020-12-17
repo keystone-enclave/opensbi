@@ -142,7 +142,7 @@ static int generic_final_init(bool cold_boot)
 			return rc;
 	}
 
-  sm_init();
+  sm_init(cold_boot);
 
 	if (!cold_boot)
 		return 0;
